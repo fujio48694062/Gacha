@@ -1,77 +1,71 @@
 #include <stdio.h>
-#include <stdlib.h> // ä¹±æ•°ç”Ÿæˆ
-#include <time.h> // ä¹±æ•°ç”Ÿæˆ
+#include <stdlib.h> // —”¶¬
+#include <time.h> // —”¶¬
 #define BUFFER_SIZE 100
 
-int main()
-{
-	int gatya[BUFFER_SIZE]; // é…åˆ—ï¼ˆé ˜åŸŸæ•°ï¼‰ã®å®£è¨€
-	int num_gatya = 0; // ã‚¬ãƒãƒ£ã®å›æ•°
-	int random = 0; // ä¹±æ•°
-	int num_SSR = 0;// SSRã®æ•°
-	int num_SR = 0; // SRã®æ•°
-	int num_R = 0; // Rã®æ•°
-	float per_SSR = 0;// SSRã®å‰²åˆ
-	float per_SR = 0;// SRã®å‰²åˆ
-	float per_R = 0;// Rã®å‰²åˆ
+int main() {
+	int gatya[BUFFER_SIZE];
+	int num_gacha = 0; // ƒKƒ`ƒƒ‚Ì‰ñ”
+	int random = 0; // —”
+	int num_SSR = 0;// SSR‚Ì”
+	int num_SR = 0; // SR‚Ì”
+	int num_R = 0; // R‚Ì”
+	float per_SSR = 0;// SSR‚ÌŠ„‡
+	float per_SR = 0;// SR‚ÌŠ„‡
+	float per_R = 0;// R‚ÌŠ„‡
 
 
-	// ã‚¬ãƒãƒ£ã®æ’å‡ºç‡
-	printf("ã‚¬ãƒãƒ£ã®æ’å‡ºç‡\n");
-	printf("SSRï¼š 3%%\n");
-	printf(" SRï¼š17%%\n");
-	printf("  Rï¼š80%%\n\n");
+	// ƒKƒ`ƒƒ‚Ì”ro—¦
+	printf("ƒKƒ`ƒƒ‚Ì”ro—¦\n");
+	printf("SSRF 3%%\n");
+	printf(" SRF17%%\n");
+	printf("  RF80%%\n\n");
 
-	// ã‚¬ãƒãƒ£ã®å›æ•°
-	printf("ä½•é€£å¼•ãã¾ã™ã‹ï¼Ÿï¼ˆå˜ç™ºï½100é€£ï¼‰\n");
-	scanf_s("%d", &num_gatya);
+	// ƒKƒ`ƒƒ‚Ì‰ñ”
+	printf("‰½˜Aˆø‚«‚Ü‚·‚©Hi’P”­`100˜Aj\n");
+	scanf_s("%d", &num_gacha);
 
-	printf("\n\nâ˜†ã‚¬ãƒãƒ£ï¼ˆ%dé€£ï¼‰\n", num_gatya);
+	printf("\n\n™ƒKƒ`ƒƒi%d˜Aj\n", num_gacha);
 
 
-	// ä¹±æ•°ã®åˆæœŸåŒ–
+	// —”‚Ì‰Šú‰»
 	srand((unsigned int)time(NULL));
 
-	// ä¹±æ•°
-	for (int i = 0; i < num_gatya; i++)
-	{
+	// —”
+	for (int i = 0; i < num_gacha; i++) {
 		gatya[i] = rand() % 100 + 1;
-		// ä¹±æ•°ï¼ˆrand()ï¼‰ / æ¯æ•°ï¼ˆwholeï¼‰ = ä½™ã‚Šï¼ˆ0ï½99ï¼‰
-		// ä¹±æ•°ï¼ˆrand()ï¼‰ / æ¯æ•°ï¼ˆwholeï¼‰ +1 = ä½™ã‚Šï¼ˆ1ï½100ï¼‰
+		// —”irand()F0`2147483647j % —”‚Ì”ÍˆÍi100j	= ¬”“_ˆÈ‰º2Œ…i0`99j
+		// —”irand()F0`2147483647j % —”‚Ì”ÍˆÍi100j +1 = —”i1`100j
 		random = gatya[i];
 		/* printf("%d ", random); */
 	}
 
 
-	// çµæœ
-	for (int i = 0; i < num_gatya; i++)
-	{
-		if ((gatya[i] >= 1) && (gatya[i] < 4)) // SSRã¯3%ï¼ˆ1ï½3ï¼‰ã§æ’å‡º
-		{
+	// Œ‹‰Ê
+	for (int i = 0; i < num_gacha; i++) {
+		if ((gatya[i] >= 1) && (gatya[i] < 4)) { // SSR‚Í3%i1`3j‚Å”ro
 			printf("SSR ");
 			num_SSR++;
 		}
-		else if ((gatya[i] >= 4) && (gatya[i] < 21)) // SRã¯17%ï¼ˆ4ï½20ï¼‰ã§æ’å‡º
-		{
+		else if ((gatya[i] >= 4) && (gatya[i] < 21)) { // SR‚Í17%i4`20j‚Å”ro
 			printf("SR ");
 			num_SR++;
 		}
-		else // Rã¯80%ï¼ˆ21ï½100ï¼‰ã§æ’å‡º
-		{
+		else { // R‚Í80%i21`100j‚Å”ro
 			printf("R ");
 			num_R++;
 		}
 	}
 
-	// é›†è¨ˆ
-	per_SSR = (num_SSR / (float)num_gatya) * 100;
-	per_SR = (num_SR / (float)num_gatya) * 100;
-	per_R = (num_R / (float)num_gatya) * 100;
+	// WŒv
+	per_SSR = (num_SSR / (float)num_gacha) * 100;
+	per_SR = (num_SR / (float)num_gacha) * 100;
+	per_R = (num_R / (float)num_gacha) * 100;
 
 	printf("\n\n");
-	printf("SSRï¼š%då€‹ï¼ˆ%.1f%%ï¼‰\n", num_SSR, per_SSR);
-	printf(" SRï¼š%då€‹ï¼ˆ%.1f%%ï¼‰\n", num_SR, per_SR);
-	printf("  Rï¼š%då€‹ï¼ˆ%.1f%%ï¼‰\n", num_R, per_R);
+	printf("SSRF%dŒÂi%.1f%%j\n", num_SSR, per_SSR);
+	printf(" SRF%dŒÂi%.1f%%j\n", num_SR, per_SR);
+	printf("  RF%dŒÂi%.1f%%j\n", num_R, per_R);
 
 	return 0;
 }
