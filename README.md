@@ -1,5 +1,6 @@
 # ガチャ（C言語）
 何連引くかを指定できるガチャのソースコードです。
+![ガチャ（C言語）](https://user-images.githubusercontent.com/84171334/188267948-6ea7fb6b-aec4-4e83-a7e2-30f5751bb583.jpg)
 
 # 実行内容
 - ガチャの排出率（SSR：3%、SR：17%、R：80%）
